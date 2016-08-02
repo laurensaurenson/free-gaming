@@ -1,0 +1,18 @@
+{
+  "predef": [ "document", "jQuery", "$", "console", "angular", "when", "Phaser", "Fabrique" ],
+  "esversion": 6,
+  "globalstrict": true,
+  "browserify": true,
+  "globals": {
+      "describe": false,
+      "it": false,
+      "expect": false,
+      "before": false,
+      "beforeEach": false,
+      "after": false,
+      "afterEach": false,
+    "jasmine": false,
+    "app": true
+  },
+  "jasmine": true
+}

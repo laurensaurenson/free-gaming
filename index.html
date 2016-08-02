@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body ng-app="game">
+  <!-- hello games 
+
+  <nav ng-include="'partials/nav.html'">
+    
+  </nav>
+
+  <div class="container" ui-view>
+    
+  </div> -->
+
+  <nav ng-include="'partials/nav.html'">
+    
+  </nav>
+
+  <div class="container" ui-view>
+    
+  </div>  
+
+
+  <!-- Third Party Links  -->
+  <script src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="lib/node_modules/angular/angular.min.js"></script>
+  <script src="/lib/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="lib/node_modules/angular-route/angular-route.min.js"></script>
+  <script src="lib/node_modules/firebase/firebase.js"></script>
+  <!--   <script src="/lib/node_modules/materialize-css/dist/js/materialize.min.js"></script> -->
+  <script src="lib/phaser.min.js"></script>
+  <!-- <script src="node_modules/phaser-input/build/phaser-input.js"></script> -->
+
+  <script src="app/app.js"></script>
+  <script src="app/controllers/NavCtrl.js"></script>
+  <script src="app/controllers/HomeCtrl.js"></script>
+  <script src="app/controllers/GameCtrl.js"></script>
+  <script src="app/controllers/ContactCtrl.js"></script>
+
+  <script src="app/factories/AuthFactory.js"></script>
+  <script src="app/factories/GameFactory.js"></script>
+
+  <script src="app/values/FirebaseCreds.js"></script>
+
+
+</body>
+</html>
