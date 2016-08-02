@@ -1,0 +1,55 @@
+$darkRed: #3E1913;
+$orange: #F05829;
+$lightYellow: #F0ECA2;
+$limeGreen: #95C13D;
+$lightBlue: #62C5BB;
+$darkBlue: #026475;
+$darkerBlue: #01323B;
+$darkGrey: #383730;
+
+body {
+  // background-color: $darkerBlue;
+  margin: 0;
+  color: $darkGrey;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+nav {
+
+  background-color: $lightYellow;
+
+  h2 {
+    float: left;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;  
+    float: right;
+    padding-left: 10px; 
+  }
+
+  li:hover {
+    background-color: $darkRed;
+  }
+
+  overflow: auto;
+  padding-top: 15px;
+  box-sizing: border-box;
+  height: 100px;
+}
+
+#featureImage {
+  background-color: $limeGreen;
+  height: 500px;
+}
+
+#gameDiv {
+  margin: 0 auto;
+}
