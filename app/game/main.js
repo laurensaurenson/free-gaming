@@ -7,6 +7,7 @@ var platform;
 var background;
 var evilPlatform;
 var point;  
+var goal;
 
 var score = 0;
 
@@ -17,6 +18,7 @@ var button;
 
 var cursors;
 var jumpButton;
+var loginText;
 
 var user = firebase.auth().currentUser;
 
@@ -35,6 +37,8 @@ var mainMenu = {
     button = game.add.button(game.world.centerX - 95, 400, 'startButton', startGame, this, 2, 1, 0);
 
     // startText = game.add.text(game.world.centerX, game.world.centerY, 'Start', {font: '32px Arial', fill: '#fff'});
+    loginText = game.add.text(game.world.centerX, game.world.centerY, 'Please Login to Continue', {font: '32px Arial', fill: '#fff'});
+    loginText.visible = false;
 
     // startText.onInputUp.add(startGame, this);
     // button.onInputUp.add(startGame, this);
@@ -47,17 +51,45 @@ var mainMenu = {
 
 };
 
+var restartButton;
+
+
+
 function startGame () {
   // console.log("start", input.value);
   if (!user) {
-    console.log("login");
-    return
+    loginText.visible = true;
+    return;
   }
   game.state.start('mainState');
-  console.log("user: ", user);
-  console.log("user name: ", user.displayName.split(" ")[0]);
 }
 
+var gameOver = {
+
+  preload: function () {
+    game.load.image('startButton', "app/images/startButton.png");
+
+  },
+
+  create: function () {
+
+    restartButton = game.add.button(game.world.centerX - 95, 400, 'startButton', playAgain, this, 2, 1, 0);
+
+  },
+
+  update: function () {
+
+  }
+
+};
+
+function playAgain () {
+  game.state.start('mainState');
+  // console.log("play again" );
+
+}
+
+var playAgainButton;
 
 var mainState = {
 
@@ -70,13 +102,27 @@ var mainState = {
 
     game.load.image('background', 'app/images/background.png');
 
+    game.load.image('startButton', "app/images/startButton.png");
+    game.load.image('goal', "app/images/goal.png");
+
+
   },
+
 
   create: function () {
 
     background = game.add.tileSprite(0, 0, 2000, 800, 'background');
 
     platform = game.add.physicsGroup();
+
+    goal = game.add.physicsGroup();
+
+    goal.create(1950, 400, 'goal');
+    game.physics.arcade.enable(goal);
+
+    playAgainButton = game.add.button(game.world.centerX - 95, 400, 'startButton', playAgain, this, 2, 1, 0);
+    playAgainButton.visible = false;
+
 
     platform.create(0, 450, 'platform');
     platform.create(150, 300, 'platform');
@@ -95,10 +141,10 @@ var mainState = {
 
     point = game.add.physicsGroup();
 
-    point.create(0, 400, 'point');
-    point.create(250, 300, 'point');
-    point.create(342, 200, 'point');
-    point.create(463, 300, 'point');
+    point.create(200, 250, 'point');
+    point.create(425, 400, 'point');
+    point.create(650, 350, 'point');
+    point.create(600, 150, 'point');
 
     game.physics.arcade.enable(point);
 
@@ -135,10 +181,11 @@ var mainState = {
 
     game.physics.arcade.collide(player, evilPlatform, death);
 
+    game.physics.arcade.collide(player, goal, winGame);
+
     // game.physics.arcade.collide(player, evilPlatform);
 
     game.physics.arcade.collide(player, platform, function () {
-      console.log("touch");
     });
 
     game.physics.arcade.overlap(player, point, scorePoint);
@@ -163,7 +210,19 @@ var mainState = {
 
 };
 
+function winGame ( player, goal ) {
+  goal.kill();
+  player.kill();
+  console.log("you win");
+  score += 50;
+  postScore();
+}
+
 function death (player, evilPlatform) {
+  console.log("playAgainButton", playAgainButton);
+  playAgainButton.visible = true;
+  playAgainButton.centerX = (game.camera.x + 200);
+    // game.state.start('mainMenu');
   player.body.velocity.x = 0;  
   player.kill();
   console.log("death");
@@ -177,14 +236,13 @@ function death (player, evilPlatform) {
 function scorePoint (player, point) {
   point.kill();
   score += 10;
-  console.log("score", score);
 }
 
 function postScore () {
   let scoreObject = {
     score, 
     userName: user.displayName.split(" ")[0],
-    user: user.uid
+    uid: user.uid
   };
 
   return new Promise(function(resolve, reject) {
@@ -202,6 +260,7 @@ function postScore () {
 game.state.add('mainState', mainState);
 
 game.state.add('mainMenu', mainMenu);
+// game.state.add('gameOver', gameOver);
 
 // game.state.start('mainState');
 game.state.start('mainMenu');

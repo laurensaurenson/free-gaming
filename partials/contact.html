@@ -1,3 +1,11 @@
-<div>
-  {{name}}
+<div ng-hide="sentMail">
+  Send Us a Message:
+  <label>Name: <input type="text" name="" value="" ng-model="newEmail.userName"></label>
+  <label>Email: <input type="email" name="" value="" ng-model="newEmail.userEmail"></label>
+  <label>Message: <textarea name="" placeholder="" ng-model="newEmail.userMessage"></textarea></label>
+  <button type="submit" ng-click="sendMessage()">Send</button>
+</div>
+
+<div ng-show="sentMail">
+  your message has been recieved
 </div>

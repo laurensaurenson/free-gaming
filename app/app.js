@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('game', ['ui.router'])
+var app = angular.module('game', ['ui.router', 'angularModalService'])
 .constant('FirebaseURL', "https://game-capstone.firebaseio.com/");
 
 app.config(function ($stateProvider, $urlRouterProvider, FBCreds) {

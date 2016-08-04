@@ -12,6 +12,9 @@ body {
   margin: 0;
   color: $darkGrey;
   font-family: sans-serif;
+  a {
+    text-decoration: none;
+  }
 }
 
 .container {
@@ -33,6 +36,7 @@ nav {
     list-style: none;  
     float: right;
     padding-left: 10px; 
+    height: 100px;
   }
 
   li:hover {
@@ -40,7 +44,7 @@ nav {
   }
 
   overflow: auto;
-  padding-top: 15px;
+  // padding-top: 15px;
   box-sizing: border-box;
   height: 100px;
 }
@@ -51,5 +55,5 @@ nav {
 }
 
 #gameDiv {
-  margin: 0 auto;
+  margin: 0 10%;
 }

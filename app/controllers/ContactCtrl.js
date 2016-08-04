@@ -2,6 +2,21 @@
 
 app.controller("ContactCtrl", function ($scope) {
 
-  $scope.name = "contact";
+  $scope.sentMail = false;
+
+  $scope.newEmail = {
+    userEmail: "",
+    userName: "",
+    userMessage: ""
+  };
+
+  $scope.sendMessage = function () {
+    $scope.newEmail = {
+      userEmail: "",
+      userName: "",
+      userMessage: ""
+    };
+    $scope.sentMail = true;
+  };
 
 });
