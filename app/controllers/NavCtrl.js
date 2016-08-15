@@ -18,9 +18,14 @@ app.controller("NavCtrl", function ($scope, $state, AuthFactory) {
     $state.go("contact");
   };
 
+  $scope.userGames = function () {
+    $state.go("userGames");
+  };
+
   $scope.login = function () {
-    AuthFactory.authWithProvider();
-    console.log("log in");
+    // AuthFactory.authWithProvider();
+    // console.log("log in");
+    $state.go("login");
   }
 
 });

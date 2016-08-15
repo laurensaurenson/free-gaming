@@ -1,0 +1,32 @@
+<div id="headline">
+  <h1>game details</h1>
+</div>
+
+<div id="gameDetails">
+  {{selectedGame.name}}
+  {{selectedGame.desc}}
+  {{selectedGame.URL}}
+</div>
+
+<div id="gameDivContainer" ng-show="gameView">
+  <div id="gameDiv">
+    
+  </div>
+</div>
+
+<h3>comments: </h3>
+
+<div ng-repeat="comment in selectedGameComments"> 
+  {{comment.userName}}
+  {{comment.comment}}
+</div>
+
+<h4 ng-click="showCommentSection()">add comment</h4>
+
+<div ng-hide="commentSection">
+  <h4 ng-click="hideCommentSection()">X</h4>
+  <label >Add comment: <textarea name="" ng-model="newComment.comment"></textarea></label>
+  <div ng-click="addComment()">
+    add a comment
+  </div>
+</div>

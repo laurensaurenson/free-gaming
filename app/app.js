@@ -21,8 +21,28 @@ app.config(function ($stateProvider, $urlRouterProvider, FBCreds) {
   })
   .state('game', {
     url: '/game',
-    templateUrl: 'partials/game.html',
+    templateUrl: 'partials/gameList.html',
     controller: 'GameCtrl'
+  })
+  .state('addGame', {
+    url: '/addGame',
+    templateUrl: 'partials/addGame.html',
+    controller: 'addGameCtrl'
+  })
+  .state('editGame', {
+    url: '/edit/:gameId',
+    templateUrl: 'partials/editGame.html',
+    controller: 'editGameCtrl'
+  })
+  .state('gameDetail', {
+    url: '/game/:gameId',
+    templateUrl: 'partials/gameDetails.html',
+    controller: 'GameDetailCtrl'
+  })
+  .state('userGames', {
+    url: '/user/game',
+    templateUrl: 'partials/userGames.html',
+    controller: 'UserGamesCtrl'
   })
   .state('about', {
     url: '/about',
@@ -32,6 +52,11 @@ app.config(function ($stateProvider, $urlRouterProvider, FBCreds) {
     url: '/contact',
     templateUrl: 'partials/contact.html',
     controller: 'ContactCtrl'
+  })
+  .state('login', {
+    url: '/login',
+    templateUrl: 'partials/login.html',
+    controller: 'LoginCtrl'
   });
   $urlRouterProvider.otherwise('index');
 

@@ -1,0 +1,29 @@
+<div id="headline">
+  <h1>user games</h1>
+</div>
+
+<div id="container" ng-repeat="game in games">
+  <div class="gameCard">
+    <div class="gameImg">
+      <img src="{{game.pic}}" alt="">
+    </div>
+   <div class="gameCardContent" tags="{{game.tags}}">
+      <h4>{{game.name}}</h4>
+      <p>
+        {{game.desc}}
+      </p>
+      <h6>{{game.url}}</h6>
+      
+    </div>
+    <div class="gameButtons">
+      
+      <div ng-click="delete(game.id)">
+        delete
+      </div>
+      <a href="#/edit/{{game.id}}">
+        edit
+      </a>
+    </div>
+    <div><a href="#/game/{{game.id}}" class="submitButton">Go to Game</a></div>
+  </div>
+</div>  

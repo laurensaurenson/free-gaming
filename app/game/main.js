@@ -95,12 +95,14 @@ var mainState = {
 
   preload: function () {
 
-    game.load.image('platform', "app/images/platform.png");
+    game.load.image('platform', "assets/gameLayout-assets/basicPlatform.png");
     game.load.image('evilPlatform', "app/images/evilPlatform.png");
     game.load.image('player', "app/images/player.png");
+    // game.load.image('player', "assets/gameLayout-assets/player.png");
     game.load.image('point', "app/images/point.png");
 
-    game.load.image('background', 'app/images/background.png');
+    game.load.image('background', 'assets/gameLayout-assets/background.png');
+    game.load.image('playAgain', 'assets/gameLayout-assets/playAgain.png');
 
     game.load.image('startButton', "app/images/startButton.png");
     game.load.image('goal', "app/images/goal.png");
@@ -111,7 +113,7 @@ var mainState = {
 
   create: function () {
 
-    background = game.add.tileSprite(0, 0, 2000, 800, 'background');
+    background = game.add.tileSprite(0, 0, 4189, 4204, 'background');
 
     platform = game.add.physicsGroup();
 
@@ -120,31 +122,19 @@ var mainState = {
     goal.create(1950, 400, 'goal');
     game.physics.arcade.enable(goal);
 
-    playAgainButton = game.add.button(game.world.centerX - 95, 400, 'startButton', playAgain, this, 2, 1, 0);
+    playAgainButton = game.add.button( 50, 3950, 'playAgain', playAgain, this, 2, 1, 0);
+    playAgainButton.anchor.setTo( 0.5, 0.5);
     playAgainButton.visible = false;
 
 
-    platform.create(0, 450, 'platform');
-    platform.create(150, 300, 'platform');
-    platform.create(400, 450, 'platform');
-    platform.create(500, 200, 'platform');
-    platform.create(600, 400, 'platform');
-    platform.create(800, 600, 'platform');
-    platform.create(900, 250, 'platform');
-    platform.create(1000, 450, 'platform');
-    platform.create(1100, 550, 'platform');
-    platform.create(1300, 350, 'platform');
-    platform.create(1400, 150, 'platform');
-    platform.create(1600, 550, 'platform');
-    platform.create(1800, 250, 'platform');
-    platform.create(1900, 450, 'platform');
+    platform.create(-100, 3950, 'platform');
+    platform.create(650, 3950, 'platform');
+    platform.create(1300, 3850, 'platform');
 
     point = game.add.physicsGroup();
 
-    point.create(200, 250, 'point');
-    point.create(425, 400, 'point');
-    point.create(650, 350, 'point');
-    point.create(600, 150, 'point');
+    point.create(525, 3750, 'point');
+    point.create(1100, 3750, 'point');
 
     game.physics.arcade.enable(point);
 
@@ -153,17 +143,17 @@ var mainState = {
     evilPlatform = game.add.physicsGroup();
 
     // evilPlatform = game.add.tileSprite(0, 650, 2000, 50, 'evilPlatform')
-    evilPlatform.create(0, 650, 'evilPlatform');
+    evilPlatform.create(0, 4200, 'evilPlatform');
     // evilPlatform.visible = false;
     evilPlatform.setAll('body.immovable', true);
 
 
-    player = game.add.sprite(100, 100, 'player');
+    player = game.add.sprite(100, 3742, 'player');
     // player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
 
     game.physics.arcade.enable(player);
 
-    game.world.setBounds(0, 0, 2000, 700);
+    game.world.setBounds(0, 0, 4189, 4204);
 
     player.body.collideWorldBounds = true;
     player.body.gravity.y = 500;
@@ -173,7 +163,7 @@ var mainState = {
     cursors = game.input.keyboard.createCursorKeys();
     jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
-    game.camera.follow(player);
+    game.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER);
 
   },
 
@@ -219,7 +209,6 @@ function winGame ( player, goal ) {
 }
 
 function death (player, evilPlatform) {
-  console.log("playAgainButton", playAgainButton);
   playAgainButton.visible = true;
   playAgainButton.centerX = (game.camera.x + 200);
     // game.state.start('mainMenu');

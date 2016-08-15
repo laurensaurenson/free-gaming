@@ -1,0 +1,21 @@
+<div id="headline">
+  <h1>add a game</h1>
+</div>
+
+<div id="gameForm">
+  <label>Name: <input type="text" name="" value="" ng-model="newGame.name"></label>
+  <label>Description: <input type="text" name="" value="" ng-model="newGame.desc"></label>
+  <!-- <label>Photo: <input type="file" name="" value="" ng-model="newGame.pic"></label> -->
+  <label>Photo URL:<input type="url" name="" value="" ng-model="newGame.pic"></label>
+  <label>Tags: <input type="text" name="" ng-model="newGame.tags"></label>
+<!--   <label>URL: <input type="text" name="" value="" ng-model="newGame.url"></label> -->
+  <label>URL: <input type="url" name="" value="" ng-model="newGame.url"></label>
+  <label>Include Demo Code:<textarea name="" ng-model="newGame.code"></textarea></label>
+
+  <!-- <h4><span ng-click="useLink()">link</span> | <span ng-click="useCode()">code</span></h4>
+  <label ng-show="addGameLink">URL: <input type="url" name="" value="" ng-model="newGame.url"></label>
+  <label ng-hide="addGameLink">Code:<textarea name="" ng-model="newGame.code"></textarea></label> -->
+  <div id="submitButton" ng-click="addGame()">
+    add game
+  </div>
+</div>

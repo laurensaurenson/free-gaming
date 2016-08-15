@@ -1,0 +1,29 @@
+<div id="headline">
+  <h1>all the Games</h1>
+  Search: <input ng-model="searchText">
+</div>
+
+<!-- <div id="searchBar">
+</div>
+ -->
+<div class="container" ng-repeat="game in games | filter:searchText">
+  <div class="gameCard">
+    <div class="gameImg">
+      <img src="{{game.pic}}" alt="">
+    </div>
+    <div class="gameCardContent" tags="{{game.tags}}">
+      <h4>{{game.name}}</h4>
+      <p>
+        {{game.desc}}
+      </p>
+      <h6>{{game.url}}</h6>
+      
+    </div>
+      <!-- <h6 ng-click="seeGame({{game.id}})">see game</h6> -->
+      <div><a href="#/game/{{game.id}}" class="submitButton">Go to Game</a></div>
+      
+  </div>
+  
+</div>
+
+<h2 ng-click="goAddGame()">add a game</h2>
