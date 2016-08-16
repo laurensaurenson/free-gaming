@@ -6,4 +6,8 @@ app.controller( "LoginCtrl", function ($scope, AuthFactory) {
     AuthFactory.authWithProvider();
   };
 
-})
+  $scope.logoutOfGoogle = function () {
+    AuthFactory.signOut();
+  };
+
+});

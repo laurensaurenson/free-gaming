@@ -7,6 +7,10 @@ app.controller("GameCtrl", function ($scope, $state, GameStorage, AuthFactory) {
 
   $scope.gameView = true;
 
+  if (!AuthFactory.isAuthenticated()) {
+    $state.go("login");
+  } 
+
   $scope.showGame = function () {
     $scope.gameView = true;
   };
@@ -22,6 +26,10 @@ app.controller("GameCtrl", function ($scope, $state, GameStorage, AuthFactory) {
   $scope.goAddGame = function () {
     $state.go("addGame");
   };
+
+  $scope.viewUserGames = function () {
+    $state.go("userGames");
+  }
 
   GameStorage.getGames()
   .then( function (object) {

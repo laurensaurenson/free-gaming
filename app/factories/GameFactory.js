@@ -47,7 +47,7 @@ app.factory("GameStorage", function (FirebaseURL, $q, $http) {
         if(gameObject) {
           Object.keys(gameObject).forEach(function(key) {
             gameObject[key].id = key;
-            if (gameObject[key].user === userId){
+            if (gameObject[key].uid === userId){
 
               games.push(gameObject[key]);
             }
@@ -124,46 +124,6 @@ app.factory("GameStorage", function (FirebaseURL, $q, $http) {
       });
     });
   };
-
-  // let getScores = function () {
-  //   let scores = [];
-  //   return $q(function(resolve, reject) {
-  //     $http.get(`${FirebaseURL}/scores.json`)
-  //     .success(function(scoreObject){
-  //       if (scoreObject) {
-  //         Object.keys(scoreObject).forEach(function(key) {
-  //           scoreObject[key].id = key;
-  //           scores.push(scoreObject[key]);
-  //         });
-  //       }
-  //       console.log("scores", scoreObject );
-  //       resolve(scores);
-  //       })
-  //       .error(function(error){
-  //         reject(error);
-  //     });
-  //   });
-  // };
-
-  // let getUserScores = function (userId) {
-
-  //   let scores = [];
-
-  //   console.log("userId", userId);
-  //   return $q(function(resolve, reject) {
-  //     $http.get(`${FirebaseURL}/scores.json?orderBy="uid"&equalTo="${userId}"`)
-  //     .success(function(scoreObject) {
-  //       if (scoreObject) {
-  //         Object.keys(scoreObject).forEach(function(key) {
-  //           scoreObject[key].id = key;
-  //           scores.push(scoreObject[key]);
-  //         });
-  //       }
-  //       console.log("scoreObject", scoreObject);
-  //       resolve(scores);
-  //     });
-  //   });
-  // };
 
   return {
     getGames, postGame, postComment, getComments, getUserGames, deleteGame, editGame

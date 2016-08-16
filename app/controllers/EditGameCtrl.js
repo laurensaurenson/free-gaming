@@ -4,6 +4,10 @@ app.controller('editGameCtrl', function ($scope, $state, $stateParams, GameStora
 
   $scope.selectedGame = {};
 
+  if (!AuthFactory.isAuthenticated()) {
+    $state.go("login");
+  } 
+
   GameStorage.getGames()
   .then(function(gameCollection) {
     $scope.games = gameCollection;

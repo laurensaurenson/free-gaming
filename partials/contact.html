@@ -2,14 +2,13 @@
   <h1>contact</h1>
 </div>
 
-<div ng-hide="sentMail" class="small-container">
-  Send Us a Message:
+<div  id="gameForm">
+  <h4>Send Us a Message:</h4>
   <label>Name: <input type="text" name="" value="" ng-model="newEmail.userName"></label>
   <label>Email: <input type="email" name="" value="" ng-model="newEmail.userEmail"></label>
   <label>Message: <textarea name="" placeholder="" ng-model="newEmail.userMessage"></textarea></label>
+<h4 ng-show="sentMail">
+  Thanks!
+</h4>
   <div type="submit" class="loginButton" ng-click="sendMessage()">Send</div>
-</div>
-
-<div ng-show="sentMail">
-  your message has been recieved
 </div>

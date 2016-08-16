@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
   <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500|Roboto+Slab:300,400,700" rel="stylesheet">
 </head>
 <body ng-app="game">
   <!-- hello games 
@@ -22,8 +23,17 @@
   </nav>
 
   <div class="container" id="viewContainer" ui-view>
-
+    <div class="container">
+      <div id="featureImage">
+        <h1 class="photoText">Level Up</h1>
+        <h1 class="photoTextOther">Stay Connected</h1>
+      </div>
+    </div>
   </div>  
+
+  <footer ng-include="'partials/footer.html'">
+    
+  </footer>
 
 
   <!-- Third Party Links  -->
@@ -51,6 +61,7 @@
 
   <script src="app/factories/AuthFactory.js"></script>
   <script src="app/factories/GameFactory.js"></script>
+  <script src="app/factories/StorageFactory.js"></script>
 
   <script src="app/values/FirebaseCreds.js"></script>
 

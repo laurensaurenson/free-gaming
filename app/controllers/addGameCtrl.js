@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller( 'addGameCtrl', function ($scope, GameStorage, AuthFactory) {
+app.controller( 'addGameCtrl', function ($scope, $state, GameStorage, AuthFactory, StorageFactory) {
 
   $scope.newGame = {
     name: "",
@@ -12,6 +12,12 @@ app.controller( 'addGameCtrl', function ($scope, GameStorage, AuthFactory) {
   };
 
   $scope.addGameLink = true;
+
+  if (!AuthFactory.isAuthenticated()) {
+    $state.go("login");
+  } 
+
+  
 
   $scope.useLink = function () {
     $scope.addGameLink = true;
@@ -26,6 +32,7 @@ app.controller( 'addGameCtrl', function ($scope, GameStorage, AuthFactory) {
     GameStorage.postGame($scope.newGame, AuthFactory.getUser())
     .then( function (object) {
       console.log("object", object);
+      $state.go("game");
     });
   };
 
