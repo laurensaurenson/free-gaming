@@ -1,17 +1,17 @@
 <div id="headline">
-  <h1>edit game</h1>
+  <h1>Editting {{selectedGame.name}}</h1>
 </div>
 
 <div id="gameForm">
   <label>Name: <input type="text" name="" value="" ng-model="selectedGame.name"></label>
-  <label>Description: <input type="text" name="" value="" ng-model="selectedGame.desc"></label>
+  <label>Description: <textarea name="" class="textarea" ng-model="selectedGame.desc"></textarea></label>
   <label>Tags: <input type="text" name="" ng-model="selectedGame.tags"></label>
-  <label>URL: <input type="text" name="" value="" ng-model="selectedGame.url"></label>
+  <label>URL: <input type="text" name="" value="" ng-model="selectedGame.website"></label>
 
   <!-- <h4><span ng-click="useLink()">link</span> | <span ng-click="useCode()">code</span></h4> -->
   <!-- <label ng-show="addGameLink">URL: <input type="url" name="" value="" ng-model="selectedGame.url"></label>
   <label ng-hide="addGameLink">Code:<textarea name="" ng-model="selectedGame.code"></textarea></label> -->
-  <div id="submitButton" ng-click="editGame(selectedGame.id)">
-    edit game
+  <div class="submitButton" ng-click="editGame(selectedGame.id)">
+    Submit
   </div>
 </div>

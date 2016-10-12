@@ -1,12 +1,13 @@
 <div id="headline">
-  <h1>game details</h1>
+  <h1>{{selectedGame.name}}</h1>
 </div>
 
-<div id="gameDetails">
-  <h2>{{selectedGame.name}}</h2>
+<div id="gameForm">
+  <!-- <h2>{{selectedGame.name}}</h2> -->
   <p>{{selectedGame.desc}}</p>
-  <div id="gameUrlButton">
-    <a href="{{selectedGame.URL}}" title="">Go To Game</a>
+  <p class="smallText">Tags: {{selectedGame.tags}}</p>
+  <div class="submitButton">
+    <a href="{{selectedGame.website}}" title="">Go To Game</a>
   </div>
   
 </div>

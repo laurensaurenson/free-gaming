@@ -336,7 +336,13 @@ label {
   p {
     height: 90px;
     font-family: 'Raleway', sans-serif;
+    overflow: scroll;
+
   }
+}
+
+.gameDesc {
+  overflow: scroll;
 }
 
 .gameButtons {

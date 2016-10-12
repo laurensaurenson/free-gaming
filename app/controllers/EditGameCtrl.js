@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('editGameCtrl', function ($scope, $state, $stateParams, GameStorage) {
+app.controller('editGameCtrl', function ($scope, $state, $stateParams, GameStorage, AuthFactory) {
 
   $scope.selectedGame = {};
 
