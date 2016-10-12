@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
   <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500|Roboto+Slab:300,400,700" rel="stylesheet">
 </head>
 <body ng-app="game">
   <!-- hello games 
@@ -21,9 +22,18 @@
     
   </nav>
 
-  <div class="container" ui-view>
-    
+  <div class="container" id="viewContainer" ui-view>
+    <div class="container">
+      <div id="featureImage">
+        <h1 class="photoText">Level Up</h1>
+        <h1 class="photoTextOther">Stay Connected</h1>
+      </div>
+    </div>
   </div>  
+
+  <footer ng-include="'partials/footer.html'">
+    
+  </footer>
 
 
   <!-- Third Party Links  -->
@@ -32,8 +42,10 @@
   <script src="/lib/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="lib/node_modules/angular-route/angular-route.min.js"></script>
   <script src="lib/node_modules/firebase/firebase.js"></script>
+  <script src="lib/node_modules/angular-modal-service/dst/angular-modal-service.min.js"></script>
   <!--   <script src="/lib/node_modules/materialize-css/dist/js/materialize.min.js"></script> -->
   <script src="lib/phaser.min.js"></script>
+  <!-- <script src="lib/illuminated.js"></script> -->
   <!-- <script src="node_modules/phaser-input/build/phaser-input.js"></script> -->
 
   <script src="app/app.js"></script>
@@ -41,9 +53,15 @@
   <script src="app/controllers/HomeCtrl.js"></script>
   <script src="app/controllers/GameCtrl.js"></script>
   <script src="app/controllers/ContactCtrl.js"></script>
+  <script src="app/controllers/LoginCtrl.js"></script>
+  <script src="app/controllers/addGameCtrl.js"></script>
+  <script src="app/controllers/GameDetailCtrl.js"></script>
+  <script src="app/controllers/UserGamesCtrl.js"></script>
+  <script src="app/controllers/EditGameCtrl.js"></script>
 
   <script src="app/factories/AuthFactory.js"></script>
   <script src="app/factories/GameFactory.js"></script>
+  <script src="app/factories/StorageFactory.js"></script>
 
   <script src="app/values/FirebaseCreds.js"></script>
 

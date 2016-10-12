@@ -1,27 +1,38 @@
 $darkRed: #3E1913;
-$orange: #F05829;
-$lightYellow: #F0ECA2;
-$limeGreen: #95C13D;
-$lightBlue: #62C5BB;
+$orange: #F0573E;
+$lightYellow: #EEF0C2;
+$lighterYellow: #F9F9E5;
+$limeGreen: #B5BF34;
+$lightBlue: #20A28E;
 $darkBlue: #026475;
 $darkerBlue: #01323B;
-$darkGrey: #383730;
+$darkGrey: #2E313D;
 
 body {
-  // background-color: $darkerBlue;
+  background-color: $lighterYellow;
   margin: 0;
   color: $darkGrey;
-  font-family: sans-serif;
+  // font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
+
+  a {
+    text-decoration: none;
+    color: $darkGrey;
+
+  }
 }
 
 .container {
-  max-width: 1020px;
+  // max-width: 1020px;
   margin: 0 auto;
+  margin-top: 10px;
 }
 
 nav {
 
-  background-color: $lightYellow;
+  // background-color: $lightYellow;
+  font-family: 'Roboto Slab', serif;
+  // font-family: 'Raleway', sans-serif;
 
   h2 {
     float: left;
@@ -32,24 +43,398 @@ nav {
   li {
     list-style: none;  
     float: right;
+    padding-top: 2px;
     padding-left: 10px; 
+    padding-right: 10px;
+    padding-bottom: 20px; 
+    // height: 100px;
   }
 
   li:hover {
-    background-color: $darkRed;
+    // background-color: $darkRed;
+  }
+
+  ul {
+    padding-right: 30px;
+  }
+
+  #navWhiteSpace {
+    background-color: $lightYellow;
+    height: 114px;
+  }
+
+  #navGreenSpace {
+    background-color: $limeGreen;
+    width: 100%;
+    height: 37px;
+  }
+
+  #navSmallWhiteSpace {
+    background-color: $lightYellow;
+    height: 10px;
   }
 
   overflow: auto;
-  padding-top: 15px;
+  // padding-top: 15px;
   box-sizing: border-box;
+  // height: 100px;
+}
+
+#navContainer {
+  background-color: $lightBlue;
+}
+
+#navMenu {
+  float: right;
+  width: 100%;
+  background-color: $lightBlue;
+
+}
+
+.list {
+  overflow: auto;
+}
+
+#footerMenu {
+  float: right;
+  width: 100%;
   height: 100px;
+  font-size: 14px;
+  background-color: $darkGrey;
+  color: $lightBlue;
+  li {
+    display: inline-block;
+
+  }
+  #footerNav {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    padding-top: 20px;
+    // background-color: teal;
+  }
+}
+
+.addGame {
+  display: inline-block;
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  color: $limeGreen;
+  // float: right;
+  text-align: right;
+  padding-right: 0px;
+}
+
+.viewGame {
+  display: inline-block;
+  font-size: 18px;
+
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: 200;
+  color: $limeGreen;
+  // float: right;
+  text-align: right;
+  padding-right: 0px;
 }
 
 #featureImage {
-  background-color: $limeGreen;
-  height: 500px;
+  background-color: $orange;
+  background-image: url("../images/loading.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 420px;
+  border-radius: 1px;
+}
+
+#viewContainer {
+  width: 92%;
+  margin: 0, auto;
 }
 
 #gameDiv {
-  margin: 0 auto;
+  margin: 0 10%;
+}
+
+.loginButton {
+  margin: 10px auto;
+  padding: 20px;
+  background-color: $limeGreen;
+  max-width: 135px;
+  text-align: center;
+}
+
+.small-container {
+  max-width: 200px;
+  margin: 20px auto;
+}
+
+label {
+  display: block;
+  margin: 20px auto;
+
+}
+
+.gameCard {
+  width: 30%;
+  // height: 400px;
+  background-color: $lightYellow;
+  padding: 2%;
+  margin: 1.66%;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  overflow: auto;
+  float: left;
+  align-content: center;
+  border-radius: 2px;
+  box-shadow: 0px 0px 22px -4px rgba(46,49,61,0.33);
+}
+
+#headline  {
+  // height: 100px;
+  // background-color: $orange;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 500;
+  text-align: right;
+  padding-right: 30px;
+  // padding-top: 20px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 10px;
+  h1 {
+    margin: 0;
+    padding-bottom: 25px;
+    padding-top: 20px;
+  }
+  input {
+    // background-color: $lighterYellow;
+    color: $darkGrey;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    padding-left: 15px;
+    margin-left: 5px;
+    font-size: 14px;
+    // width: 200px;
+    height: 30px;
+    // background-color: teal;
+  }
+  input:focus {
+    outline: none;
+    background-color: $lighterYellow;
+    // border: 0px, solid, #fff;
+  }
+}
+
+#searchBar {
+  text-align: right;
+  background-color: $lightBlue;
+}
+
+.gameImg {
+  // width: 100%;
+  width: 150px;
+  height: 150px;
+  display: block;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  background-color: $lightBlue;
+  border-radius: 50%;
+  img{
+    max-height: 150px;
+    // margin: 0, auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    // width: 100%;
+    // height: 100%;
+  }
+}
+
+.logout {
+  margin-top: 25px;
+}
+
+#gameForm {
+  margin: auto;
+  padding: 40px;
+  padding-top: 10px;
+  // margin-left: 50px;
+  width: 400px;
+  background-color: $lightYellow;
+  margin-bottom: 40px;
+  label {
+    padding: 10px;
+    padding-bottom: 2px;
+
+  }
+  input {
+    width: 100%;
+    display: block;
+    margin: auto;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-top: 10px;
+
+  }
+  textarea {
+    width: 100%;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    height: 150px;
+    box-sizing: border-box;
+
+  }
+  .smallText {
+    font-size: 12px;
+    padding-left: 5px;
+    margin-top: 10px;
+  }
+}
+
+.space {
+  height: 30px;
+}
+
+#submitButton {
+  // height: 30px;
+  width: 100px;
+  text-align: center;
+  margin: auto;
+  background-color: $orange;
+}
+
+#logo {
+  background-image: url('../images/logo.png');
+  height: 410px;
+  width: 478px;
+  float: left;
+  z-index: 1;
+  position: absolute;
+}
+
+.gameCardContent {
+  h4 {
+    // margin: 10px, 15px, 5px, 15px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  p {
+    height: 90px;
+    font-family: 'Raleway', sans-serif;
+    overflow: scroll;
+
+  }
+}
+
+.gameDesc {
+  overflow: scroll;
+}
+
+.gameButtons {
+  float: right;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  div {
+    color: $orange;
+  }
+  a {
+    color: $limeGreen;
+  }
+}
+
+.submitButton {
+  height: 30px;
+  width: 100px;
+  text-align: center;
+  color: $lighterYellow;
+  margin: auto;
+  background-color: $limeGreen;
+  padding: 15px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  border-radius: 3px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+}
+
+#gameDetails {
+  margin: auto;
+  width: 500px;
+}
+
+#featureImage {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.photoText {
+  font-family: 'Roboto Slab', serif;
+  color: $lightYellow;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 240px;
+  font-size: 46px;
+}
+
+.photoTextOther {
+  font-family: 'Roboto Slab', serif;
+  color: $lightYellow;
+  font-weight: 400;
+  // padding-top: 150;
+  font-size: 46px;
+}
+
+.sectionTitle {
+  font-family: 'Roboto Slab', serif;
+  color: $lighterYellow;
+  font-weight: 400;
+  margin-left: 25px;
+  font-size: 32px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.homeCardContainer {
+  background-color: $limeGreen;
+  overflow: auto;
+  margin-top: 10px;
+
+  // height: 200px;
+}
+
+.buttonHolder {
+  // width: 100px;
+  text-align: center;
+  margin: auto;
+  margin-top: 10px;
+  div {
+    display: inline-block;
+  }
+  .delete {
+    color: $orange;
+  }
+  .edit {
+    color: $lightBlue;
+  }
+  .buttonH {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 7px;
+  }
 }

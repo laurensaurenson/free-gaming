@@ -1,15 +1,26 @@
+
+
 <div>
-
-
-  helloihgfds
-  {{name}}
+  <h3><span ng-click="showGame()">Game</span> | <span ng-click="showScores()">High Scores</span></h3>
 </div>
-<div id="gameDiv">
+
+<div id="gameDivContainer" ng-show="gameView">
+  <div id="gameDiv">
+    
+  </div>
+</div>
+
+<div ng-hide="gameView">
   
+<h4>Your High Scores: </h4>
+  <div id="highScores" ng-repeat="userScore in userScores">
+    {{userScore.rank}}. {{userScore.userName}}: {{userScore.score}}
+  </div>
+
+  <h4>Overall High Scores </h4>
+  <div id="highScores" ng-repeat="score in scores">
+    {{score.rank}}. {{score.userName}}: {{score.score}}
+  </div>
 </div>
 
-<div id="highScores" ng-repeat="score in scores">
-  {{score.userName}}: {{score.score}}
-</div>
-
-<script src="dist/bundle.js"></script>
+<!-- <script src="dist/bundle.js"></script> -->

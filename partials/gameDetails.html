@@ -1,0 +1,36 @@
+<div id="headline">
+  <h1>{{selectedGame.name}}</h1>
+</div>
+
+<div id="gameForm">
+  <!-- <h2>{{selectedGame.name}}</h2> -->
+  <p>{{selectedGame.desc}}</p>
+  <p class="smallText">Tags: {{selectedGame.tags}}</p>
+  <div class="submitButton">
+    <a href="{{selectedGame.website}}" title="">Go To Game</a>
+  </div>
+  
+</div>
+
+<div id="gameDivContainer" ng-show="gameView">
+  <div id="gameDiv">
+    
+  </div>
+</div>
+
+<!-- <h3>comments: </h3>
+
+<div ng-repeat="comment in selectedGameComments"> 
+  {{comment.userName}}
+  {{comment.comment}}
+</div>
+
+<h4 ng-click="showCommentSection()">add comment</h4>
+
+<div ng-hide="commentSection">
+  <h4 ng-click="hideCommentSection()">X</h4>
+  <label >Add comment: <textarea name="" ng-model="newComment.comment"></textarea></label>
+  <div ng-click="addComment()">
+    add a comment
+  </div>
+</div> -->

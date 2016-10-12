@@ -1,9 +1,29 @@
+
+
 <div class="container">
   <div id="featureImage">
-    feature image
+    <h1 class="photoText">Level Up</h1>
+    <h1 class="photoTextOther">Stay Connected</h1>
   </div>
-</div><div>
-  {{message}}
 </div>
-
-adsfasdf
+<div class="homeCardContainer container">
+  <h2 class="sectionTitle">Catch a Glimpse</h2>
+  <div class="gameCard " ng-repeat="game in sampleGames"> 
+    <div class="gameImg">
+      <img src="../images/heart.png" alt="">
+    </div>
+    <div class="gameCardContent" tags="{{game.tags}}">
+      <h4>{{game.name}}</h4>
+      <p>
+        {{game.desc}}
+      </p>
+      <!-- <h6>{{game.url}}</h6> -->
+      
+    </div>
+      <!-- <h6 ng-click="seeGame({{game.id}})">see game</h6> -->
+      <div class="submitButton"><a href="#/game/{{game.id}}" >Go to Game</a></div>
+      
+  </div>
+  
+</div>
+</div>

@@ -1,14 +1,74 @@
 "use strict";
 
-app.controller("GameCtrl", function ($scope, GameStorage) {
+app.controller("GameCtrl", function ($scope, $state, GameStorage, AuthFactory) {
 
-  $scope.name = "game";
+  $scope.games = [];
+  $scope.userScores = [];
 
-  $scope.scores = [];
+  $scope.gameView = true;
 
-  GameStorage.getScores()
-  .then( function (score) {
-    $scope.scores = score;
+  if (!AuthFactory.isAuthenticated()) {
+    $state.go("login");
+  } 
+
+  $scope.showGame = function () {
+    $scope.gameView = true;
+  };
+
+  $scope.showScores = function () {
+    $scope.gameView = false;
+  };
+
+  if ( !AuthFactory.getUser() ) {
+    $scope.loginView = true;
+  }
+
+  $scope.goAddGame = function () {
+    $state.go("addGame");
+  };
+
+  $scope.viewUserGames = function () {
+    $state.go("userGames");
+  }
+
+  GameStorage.getGames()
+  .then( function (object) {
+    $scope.games = object
+    console.log("object", $scope.games);
   });
+
+  // GameStorage.getScores()
+  // .then( function (score) {
+  //   score.sort(function (a, b) {
+  //     if (a.score > b.score) {
+  //       return 1;
+  //     }
+  //     if (a.score < b.score) {
+  //       return -1;
+  //     }
+  //     return 0;
+  //   });
+  //   for ( var i = 1; i < 6; i++ ) {
+  //     score[score.length-i].rank = i;
+  //     $scope.scores.push(score[score.length-i]);
+  //   };
+  // });
+
+  // GameStorage.getUserScores(AuthFactory.getUser())
+  // .then( function (score) {
+  //   score.sort(function (a, b) {
+  //     if (a.score > b.score) {
+  //       return 1;
+  //     }
+  //     if (a.score < b.score) {
+  //       return -1;
+  //     }
+  //     return 0;
+  //   });
+  //   for ( var i = 1; i < 4; i++ ) {
+  //     score[score.length-i].rank = i;
+  //     $scope.userScores.push(score[score.length-i]);
+  //   };
+  // });
 
 });
